@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Speechstate</title>
+    <style>
+      .App {
+        height: 0 !important;
+      }
+	  .center {
+		  text-align: center;
+		}
+	  html, 
+	  body {
+			height: 100%;
+		}
+	  .container {  display: grid;
+		  grid-template-columns: 20% 20% 20% 20% 20%;
+		  grid-template-rows: 60% 50% 40%;
+		  gap: 0px 0px;
+		  grid-auto-flow: row;
+		  grid-template-areas:
+			". . ai_cards . . "
+			"white yellow blue green red"
+			". . speak_button . .";
+		}
+
+		.white { grid-area: white; }
+
+		.yellow { grid-area: yellow; }
+
+		.blue { grid-area: blue; }
+
+		.green { grid-area: green; }
+
+		.red { grid-area: red; }
+
+		.ai_cards { grid-area: ai_cards; }
+
+		.speak_button { grid-area: speak_button; }
+
+    </style>
+	<script src="dmGame.js"></script>
+  </head>
+  <body>
+	
+	<div class="container">
+   <div class="ai_cards" id="ai_cards"></div>
+  <div class="white" id="white" style="margin-left:auto;margin-right:auto;"></div>
+  <div class="yellow" id="yellow" style="margin-left:auto;margin-right:auto;">
+  </div>
+  <div class="blue" id="blue" style="margin-left:auto;margin-right:auto;">
+ </div>
+  <div class="green" id="green" style="margin-left:auto;margin-right:auto;">
+</div>
+  <div class="red" id="red" style="margin-left:auto;margin-right:auto;">
+ </div>
+  <div class="speak_button">
+	
+	<div
+      id="speechstate"
+      data-azure-key="9b988e14116647a381c4c0c0512a7710"
+	  data-azure-nlu-key="2fa33d1219314399a4d890c6f2e7a3b2"
+	  data-azure-nlu-url="https://nlu-lab-dialogue-systems.cognitiveservices.azure.com/language/:analyze-conversations?api-version=2022-10-01-preview"
+	  data-azure-nlu-project-name="ds_project"
+	  data-azure-nlu-deployment-name="ds_project"
+      data-tts-voice="en-US"
+      data-asr-language="en-US"
+    ></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+	<link href="index.css" rel="stylesheet" />
+    <script src="index.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/cardsJS/dist/cards.min.css" />
+	<script src="https://unpkg.com/cardsJS/dist/cards.min.js" type="text/javascript"></script>
+</div>
+	</div>
+	
+  </body>
+</html>
