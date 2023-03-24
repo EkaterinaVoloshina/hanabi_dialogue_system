@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,300;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+  background: hsla(90deg, 25%, 85%, 0.7);
+}
+
+.App {
+  font-family: IBM Plex Mono, monospace;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background: hsla(90deg, 25%, 85%, 0.7);
+}
+
+.control {
+  position: relative;
+  height: 40vh;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: left;
+}
+.control:hover .circle-click {
+  background: hsl(77deg, 100%, 77%);
+}
+.control .prompt img {
+  height: 40vh;
+  padding: 10px 25px;
+  text-align: left;
+}
+.control .status, .control .status-talk {
+  bottom: 0;
+  padding-top: 10vh;
+  padding-left: 50px;
+  padding-right: 20px;
+  width: 100vw;
+  font-family: IBM Plex Mono, monospace;
+  font-style: italic;
+  font-weight: light;
+  font-size: 20pt;
+  text-align: left;
+  color: #063746;
+  z-index: 1;
+}
+.control .status .status-text, .control .status-talk .status-text {
+  z-index: 5;
+  position: relative;
+  white-space: normal;
+}
+.control .circle, .control .circle-recognising, .control .circle-speaking, .control .circle-click {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: -40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: #CD1515;
+  z-index: 0;
+}
+.control .circle-click {
+  border: 0px;
+  background-color: #fff;
+}
+.control .circle-speaking {
+  border: 0px;
+  background-color: #fff;
+  animation: bordering 2s infinite;
+}
+.control .circle-recognising {
+  animation: bordersize 2s infinite;
+}
+
+.select-wrapper {
+  margin-left: 40px;
+  margin-right: 20px;
+  top: 35vh;
+  position: absolute;
+}
+
+.select {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: space-around;
+  justify-content: flex-start;
+}
+
+.flex {
+  margin: 0.5em;
+  padding: 1em;
+  flex-basis: 20vw;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #fff;
+  border: 2px solid #063746;
+}
+
+.flex:hover {
+  background: hsl(77deg, 100%, 77%);
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 5px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes bordering {
+  0% {
+    box-shadow: 0 0 0px hsla(77deg, 100%, 77%, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0px 8vh hsla(77deg, 100%, 77%, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 0px hsla(77deg, 100%, 77%, 0.5);
+  }
+}
+@keyframes bordersize {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0px 8vh rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.5);
+  }
+}
+[data-xstate] {
+  justify-self: stretch;
+  align-self: stretch;
+  border: none;
+}
